@@ -15,11 +15,17 @@ $config = [
         'request' => [
             'cookieValidationKey' => 'hashASV2#4456r666646H$h66xx',
         ],
-		'paypalpro' => [
- 
-            'class' => 'app\components\Paypalpro',
- 
-        ],
+		'response' => [
+    'format' => yii\web\Response::FORMAT_JSON,
+    'charset' => 'UTF-8',
+    // ...
+],
+
+'request' => [
+    'parsers' => [
+        'application/json' => 'yii\web\JsonParser',
+    ]
+],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -47,7 +53,7 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-       
+       /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -57,6 +63,17 @@ $config = [
             ],
         ],
         
+		*/
+		
+		     'urlManager' => [
+            'enablePrettyUrl' => true,
+            'enableStrictParsing' => false,
+            'showScriptName' => false,
+            'rules' => [
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'purchase',  'pluralize'=>false] ,
+            ],
+			],
+			
     ],
     'params' => $params,
 ];
