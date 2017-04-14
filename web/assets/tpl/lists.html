@@ -1,0 +1,27 @@
+<h2>Purchase </h2>
+
+<input type="text" ng-model="searchText" placeholder="search">
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Purchase ID</th>
+      <th>Offering title</th>
+      <th>Quantity</th>
+      <th>Unit price</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="pr in purchase | filter:searchText">
+      <td>{{pr.PurchaseID}}</td>
+      <td>{{pr.Title}}</td>
+      <td>{{pr.Qty}}</td>
+      <td>{{pr.UnitPrice}}</td>
+	  <td>{{pr.TotalPrice}}</td>
+	  
+	  
+     
+    </tr>
+  </tbody>
+</table>
+<a class="btn btn-primary" href="#/add-user">Add New</a>
